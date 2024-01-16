@@ -3,11 +3,32 @@
 # and returns a new dictionary that includes a new key friends_count:
 
 
-def countFriends(ramit): 
-    for key in ramit: 
-        print("key:", key, "value:" [key])
+
+# Nested dictionary from previous example: 
+ramit = {
+    'name': 'Ramit',
+    'email': 'ramit@gmail.com',
+    'interests': ['movies', 'tennis'],
+    'friends': [
+        {
+        'name': 'Jasmine',
+        'email': 'jasmine@yahoo.com',
+        'interests': ['photography', 'tennis']
+        },
+        {
+        'name': 'Jan',
+        'email': 'jan@hotmail.com',
+        'interests': ['movies', 'tv']
+        }
+    ]
+}
+
+# End of nested dictionary from previous example 
 
 
+def countFriends(person):
+    friends_count = len(person.get('friends', []))
+    return {'friends_count': friends_count}
 
-ramit = {'a':1, 'b':2, 'c':3} 
-countFriends(ramit)
+result = countFriends(ramit)
+print(result)
